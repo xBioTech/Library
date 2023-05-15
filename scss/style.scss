@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@1,700&display=swap");
+
+$sidebar-color: #edc7b7;
+$secondary-color: #123c69;
+$page-background: #eee2dc;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  background-color: $page-background;
+  color: $secondary-color;
+}
+
+form {
+  background-color: $sidebar-color;
+  text-align: center;
+  min-height: 100svh;
+  font-size: 1.5rem;
+
+  .headline {
+    font-family: "Lobster Two", cursive;
+    text-align: center;
+  }
+  label {
+    display: flex;
+    justify-content: center;
+  }
+}
+.main {
+  .main-header {
+    display: flex;
+    gap: 2em;
+    font-size: 1.5rem;
+  }
+  table {
+    text-align: center;
+    font-size: 1.5rem;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  thead {
+    background-color: $secondary-color;
+    color: white;
+  }
+  thead th:nth-child(1) {
+    width: 35%;
+  }
+
+  thead th:nth-child(2) {
+    width: 20%;
+  }
+
+  thead th:nth-child(3) {
+    width: 15%;
+  }
+
+  thead th:nth-child(4) {
+    width: 15%;
+  }
+  thead th:nth-child(5) {
+    width: 15%;
+  }
+
+  td {
+    padding: 0.5em;
+    border-bottom: 2px solid $secondary-color;
+  }
+}
