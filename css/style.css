@@ -15,6 +15,7 @@ form {
   text-align: center;
   min-height: 100svh;
   font-size: 1.5rem;
+  padding: 0 1em 0 1em;
 }
 form .headline {
   font-family: "Lobster Two", cursive;
@@ -24,11 +25,59 @@ form label {
   display: flex;
   justify-content: center;
 }
+form input[type=text] {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border-bottom: 2px solid #123c69;
+  border-radius: 5px;
+  width: 13em;
+  transition: all 0.4s;
+}
+form input[type=text]:focus {
+  width: 85%;
+}
+form input[type=checkbox] {
+  accent-color: #123c69;
+}
+form .book-title {
+  padding: 1em 0;
+}
+form .book-author {
+  padding: 1em 0;
+}
+form .book-pages {
+  padding: 1em 0;
+  padding-bottom: 1em;
+}
+form .checkbox-read {
+  padding: 0 1em 1em 1em;
+}
+form .add-button {
+  background-color: #123c69;
+  color: white;
+  border: none;
+  padding: 1em 3em;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: 700;
+}
 
+.main {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  margin-top: 3em;
+}
 .main .main-header {
   display: flex;
   gap: 2em;
   font-size: 1.5rem;
+}
+.main .main-table {
+  width: 80%;
 }
 .main table {
   text-align: center;
