@@ -117,3 +117,14 @@ form {
     border-bottom: 2px solid $secondary-color;
   }
 }
+
+.remove-button {
+  background-color: $secondary-color;
+  color: white;
+  border: none;
+  padding: 0.5em 3em;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: 700;
+  border-bottom: 2px solid $secondary-color;
+}

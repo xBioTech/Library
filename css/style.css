@@ -109,4 +109,15 @@ form .add-button {
   border-bottom: 2px solid #123c69;
 }
 
+.remove-button {
+  background-color: #123c69;
+  color: white;
+  border: none;
+  padding: 0.5em 3em;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: 700;
+  border-bottom: 2px solid #123c69;
+}
+
 /*# sourceMappingURL=style.css.map */
