@@ -9,14 +9,24 @@ function Book(title, author, pages, readstatus) {
 
 function addBookToLibrary(e) {
   e.preventDefault();
-  const title = document.getElementById("title").value;
-  const author = document.getElementById("author").value;
-  const pages = document.getElementById("pages").value;
-  const readstatus = document.getElementById("readstatus").checked;
+  const titleInput = document.getElementById("title");
+  const authorInput = document.getElementById("author");
+  const pagesInput = document.getElementById("pages");
+  const readstatusInput = document.getElementById("readstatus");
+
+  const title = titleInput.value;
+  const author = authorInput.value;
+  const pages = pagesInput.value;
+  const readstatus = readstatusInput.checked;
 
   const newBook = new Book(title, author, pages, readstatus);
 
   library.push(newBook);
+
+  titleInput.value = "";
+  authorInput.value = "";
+  pagesInput.value = "";
+  readstatusInput.checked = false;
 }
 const submitButton = document.querySelector(".add-button");
 submitButton.addEventListener("click", addBookToLibrary);
