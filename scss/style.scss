@@ -115,6 +115,26 @@ form {
   td {
     padding: 0.5em;
     border-bottom: 2px solid $secondary-color;
+
+    .readstatus-button {
+      background-color: green;
+      color: white;
+      border: none;
+      padding: 0.5em 3em;
+      border-radius: 3px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .readstatus-button-false {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 0.5em 3em;
+      border-radius: 3px;
+      cursor: pointer;
+      font-weight: 700;
+    }
   }
 }
 
@@ -126,5 +146,4 @@ form {
   border-radius: 3px;
   cursor: pointer;
   font-weight: 700;
-  border-bottom: 2px solid $secondary-color;
 }

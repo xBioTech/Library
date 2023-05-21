@@ -7,6 +7,17 @@ function Book(title, author, pages, readstatus) {
   this.readstatus = readstatus;
 }
 
+Book.prototype.checkboxStatus = function (readstatusButton) {
+  if (this.readstatus) {
+    readstatusButton.classList.add("readstatus-button");
+    readstatusButton.textContent = "read";
+  } else {
+    readstatusButton.classList.remove("readstatus-button");
+    readstatusButton.classList.add("readstatus-button-false");
+    readstatusButton.textContent = "not read";
+  }
+};
+
 function addBookToLibrary(e) {
   e.preventDefault();
   const titleInput = document.getElementById("title");
@@ -51,8 +62,10 @@ function addBookToTable(object, index) {
   tableRow.appendChild(pagesCell);
 
   const readstatusCell = document.createElement("td");
-  readstatusCell.textContent = object.readstatus;
+  const readstatusButton = document.createElement("button");
   tableRow.appendChild(readstatusCell);
+  readstatusCell.appendChild(readstatusButton);
+  object.checkboxStatus(readstatusButton);
 
   const remove = document.createElement("td");
   const removeBtn = document.createElement("button");
