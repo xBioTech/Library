@@ -30,6 +30,23 @@ Book.prototype.toggleReadStatus = function (readstatusButton) {
   }
 };
 
+function showTotalBooks() {
+  const totalBooks = document.querySelector(".total-books");
+  totalBooks.textContent = `${library.length}`;
+}
+
+function showBooksRead() {
+  const booksRead = document.querySelector(".total-books-read");
+  const booksReadCount = library.filter((book) => book.readstatus).length;
+  booksRead.textContent = booksReadCount.toString();
+}
+
+function showBooksUnread() {
+  const booksUnread = document.querySelector(".total-books-unread");
+  const booksUnreadCount = library.filter((book) => !book.readstatus).length;
+  booksUnread.textContent = booksUnreadCount.toString();
+}
+
 function addBookToLibrary(e) {
   e.preventDefault();
   const titleInput = document.getElementById("title");
@@ -45,6 +62,9 @@ function addBookToLibrary(e) {
   const newBook = new Book(title, author, pages, readstatus);
 
   library.push(newBook);
+  showTotalBooks();
+  showBooksRead();
+  showBooksUnread();
 
   titleInput.value = "";
   authorInput.value = "";
@@ -102,6 +122,9 @@ function removeBookFromLibrary(index) {
   tableRow.remove();
   library.splice(index, 1);
   updateTableIndices();
+  showTotalBooks();
+  showBooksRead();
+  showBooksUnread();
 }
 
 function updateTable() {
