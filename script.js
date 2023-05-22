@@ -18,6 +18,18 @@ Book.prototype.checkboxStatus = function (readstatusButton) {
   }
 };
 
+Book.prototype.toggleReadStatus = function (readstatusButton) {
+  if (readstatusButton.textContent === "read") {
+    readstatusButton.classList.remove("readstatus-button");
+    readstatusButton.classList.add("readstatus-button-false");
+    readstatusButton.textContent = "not read";
+  } else {
+    readstatusButton.classList.remove("readstatus-button-false");
+    readstatusButton.classList.add("readstatus-button");
+    readstatusButton.textContent = "read";
+  }
+};
+
 function addBookToLibrary(e) {
   e.preventDefault();
   const titleInput = document.getElementById("title");
@@ -66,6 +78,9 @@ function addBookToTable(object, index) {
   tableRow.appendChild(readstatusCell);
   readstatusCell.appendChild(readstatusButton);
   object.checkboxStatus(readstatusButton);
+  readstatusButton.addEventListener("click", () => {
+    object.toggleReadStatus(readstatusButton);
+  });
 
   const remove = document.createElement("td");
   const removeBtn = document.createElement("button");
