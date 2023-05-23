@@ -23,11 +23,15 @@ Book.prototype.toggleReadStatus = function (readstatusButton) {
     readstatusButton.classList.remove("readstatus-button");
     readstatusButton.classList.add("readstatus-button-false");
     readstatusButton.textContent = "not read";
+    this.readstatus = false;
   } else {
     readstatusButton.classList.remove("readstatus-button-false");
     readstatusButton.classList.add("readstatus-button");
     readstatusButton.textContent = "read";
+    this.readstatus = true;
   }
+  showBooksRead();
+  showBooksUnread();
 };
 
 function showTotalBooks() {
@@ -145,3 +149,4 @@ function updateTableIndices() {
 }
 const submitButton = document.querySelector(".add-button");
 submitButton.addEventListener("click", addBookToLibrary);
+console.log(library);
