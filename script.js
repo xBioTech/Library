@@ -32,6 +32,7 @@ Book.prototype.toggleReadStatus = function (readstatusButton) {
   }
   showBooksRead();
   showBooksUnread();
+  showPagesRead();
 };
 
 function showTotalBooks() {
@@ -49,6 +50,18 @@ function showBooksUnread() {
   const booksUnread = document.querySelector(".total-books-unread");
   const booksUnreadCount = library.filter((book) => !book.readstatus).length;
   booksUnread.textContent = booksUnreadCount.toString();
+}
+
+function showPagesRead() {
+  const bookPages = document.querySelector(".total-pages-read");
+  const bookPagesCount = library.reduce((accumulator, book) => {
+    if (book.readstatus) {
+      return accumulator + parseInt(book.pages);
+    }
+    return accumulator;
+  }, 0);
+  bookPages.textContent = bookPagesCount;
+  console.log(bookPagesCount);
 }
 
 function addBookToLibrary(e) {
@@ -69,6 +82,7 @@ function addBookToLibrary(e) {
   showTotalBooks();
   showBooksRead();
   showBooksUnread();
+  showPagesRead();
 
   titleInput.value = "";
   authorInput.value = "";
@@ -129,6 +143,7 @@ function removeBookFromLibrary(index) {
   showTotalBooks();
   showBooksRead();
   showBooksUnread();
+  showPagesRead();
 }
 
 function updateTable() {
