@@ -10,7 +10,10 @@
   </head>
   <body>
     <form class="form" action="get" method="">
-      <h1 class="headline">Library</h1>
+      <div class="headline-container">
+        <h1 class="headline">Library</h1>
+        <button class="close-button-mobile">Close</button>
+      </div>
 
       <div class="book-title">
         <label for="title">Please enter the book title</label>
@@ -42,6 +45,11 @@
         <p>Pages read: <span class="total-pages-read">0</span></p>
         <p>Total books: <span class="total-books">0</span></p>
       </div>
+
+      <div class="display-form-mobile">
+        <button class="add-button-mobile">Add Book</button>
+      </div>
+
       <div class="main-table">
         <table>
           <thead>
@@ -53,7 +61,15 @@
               <th>Remove</th>
             </tr>
           </thead>
-          <tbody></tbody>
+          <tbody>
+            <tr>
+              <td>Game of Thrones</td>
+              <td>JRR Martin</td>
+              <td>600</td>
+              <td><button class="readstatus-button-false">not read</button></td>
+              <td><button class="remove-button">delete</button></td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>

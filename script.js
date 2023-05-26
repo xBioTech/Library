@@ -165,3 +165,16 @@ function updateTableIndices() {
 const submitButton = document.querySelector(".add-button");
 submitButton.addEventListener("click", addBookToLibrary);
 console.log(library);
+
+const form = document.getElementsByTagName("form")[0];
+
+const displayFormOnMobile = document.querySelector(".add-button-mobile");
+displayFormOnMobile.addEventListener("click", () => {
+  form.style.display = "block";
+});
+
+const closeFormOnMobileButton = document.querySelector(".close-button-mobile");
+closeFormOnMobileButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  form.style.display = "none";
+});

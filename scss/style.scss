@@ -3,6 +3,7 @@
 $sidebar-color: #edc7b7;
 $secondary-color: #123c69;
 $page-background: #eee2dc;
+$table-bg-color-mobile: #686868;
 
 * {
   box-sizing: border-box;
@@ -25,6 +26,22 @@ form {
   .headline {
     font-family: "Lobster Two", cursive;
     text-align: center;
+  }
+
+  .close-button-mobile {
+    display: none;
+    border: none;
+    align-self: flex-start;
+    margin-top: 1em;
+    padding: 0.4em 1em;
+    border-radius: 10px;
+    background-color: $secondary-color;
+    color: white;
+    cursor: pointer;
+    transition: all 0.4s;
+    &:hover {
+      background-color: $table-bg-color-mobile;
+    }
   }
   label {
     display: flex;
@@ -135,15 +152,125 @@ form {
       cursor: pointer;
       font-weight: 700;
     }
+    .remove-button {
+      background-color: $secondary-color;
+      color: white;
+      border: none;
+      padding: 0.5em 3em;
+      border-radius: 3px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+  }
+  .display-form-mobile {
+    display: none;
   }
 }
 
-.remove-button {
-  background-color: $secondary-color;
-  color: white;
-  border: none;
-  padding: 0.5em 3em;
-  border-radius: 3px;
-  cursor: pointer;
-  font-weight: 700;
+@media (max-width: 650px) {
+  form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 33%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+    border-radius: 10px;
+  }
+
+  .headline-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3.4em;
+  }
+
+  .headline {
+    margin-top: 1em;
+    margin-left: 1em;
+  }
+
+  label {
+    padding: 0 1em;
+  }
+
+  form .close-button-mobile {
+    display: block;
+  }
+
+  th {
+    display: none;
+  }
+
+  tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+    font-size: 0.8rem;
+  }
+
+  .main td {
+    display: grid;
+    grid-template-columns: 7ch auto;
+    border-bottom: none;
+    background-color: $table-bg-color-mobile;
+    color: white;
+    font-size: 1rem;
+  }
+
+  td::before {
+    font-weight: 700;
+    text-align: left;
+    color: $secondary-color;
+  }
+
+  td:nth-last-of-type(1)::before {
+    content: "Remove";
+  }
+  td:nth-last-of-type(2)::before {
+    content: "Status";
+  }
+  td:nth-last-of-type(3)::before {
+    content: "Pages";
+  }
+  td:nth-last-of-type(4)::before {
+    content: "Author";
+  }
+  td:nth-last-of-type(5)::before {
+    content: "Title";
+  }
+
+  .remove-button,
+  .readstatus-button,
+  .readstatus-button-false {
+    max-width: 50%;
+    margin-left: 4.5em;
+  }
+
+  .main .main-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 1.2rem;
+  }
+
+  .main {
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .main .main-table {
+    margin: 0 auto;
+  }
+
+  .main .display-form-mobile {
+    display: block;
+  }
+  .add-button-mobile {
+    border: none;
+    cursor: pointer;
+    background-color: $secondary-color;
+    color: white;
+    padding: 0.8em 5em;
+    border-radius: 8px;
+  }
 }
