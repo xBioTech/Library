@@ -170,11 +170,19 @@ const form = document.getElementsByTagName("form")[0];
 
 const displayFormOnMobile = document.querySelector(".add-button-mobile");
 displayFormOnMobile.addEventListener("click", () => {
+  form.classList.remove("hideform");
   form.style.display = "block";
+  form.classList.add("showform");
 });
 
 const closeFormOnMobileButton = document.querySelector(".close-button-mobile");
 closeFormOnMobileButton.addEventListener("click", (e) => {
   e.preventDefault();
-  form.style.display = "none";
+  form.addEventListener("animationend", () => {
+    if (form.classList.contains("hideform")) {
+      form.style.display = "none";
+    }
+  });
+  form.classList.remove("showform");
+  form.classList.add("hideform");
 });
