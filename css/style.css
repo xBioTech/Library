@@ -31,7 +31,6 @@ form .close-button-mobile {
   background-color: #123c69;
   color: white;
   cursor: pointer;
-  transition: all 0.4s;
 }
 form .close-button-mobile:hover {
   background-color: #686868;
@@ -76,6 +75,10 @@ form .add-button {
   border-radius: 3px;
   cursor: pointer;
   font-weight: 700;
+  transition: transform 0.1s ease;
+}
+form .add-button:active {
+  transform: scale(0.9);
 }
 
 .main {
@@ -149,6 +152,16 @@ form .add-button {
   border-radius: 3px;
   cursor: pointer;
   font-weight: 700;
+}
+.main td .readstatus-button,
+.main td .readstatus-button-false,
+.main td .remove-button {
+  transition: transform 0.1s ease;
+}
+.main td .readstatus-button:active,
+.main td .readstatus-button-false:active,
+.main td .remove-button:active {
+  transform: scale(0.9);
 }
 .main .display-form-mobile {
   display: none;
