@@ -7,6 +7,36 @@ function Book(title, author, pages, readstatus) {
   this.readstatus = readstatus;
 }
 
+function addExampleBooks() {
+  const example1 = new Book("exampletitle", "exampleauthor", 200, true);
+  const example2 = new Book("exampletitle", "exampleauthor", 150, false);
+  const example3 = new Book("exampletitle", "exampleauthor", 350, true);
+  library.push(example1);
+  library.push(example2);
+  library.push(example3);
+  addBookToTable(example1, library.length - 1);
+  addBookToTable(example2, library.length - 2);
+  addBookToTable(example3, library.length - 3);
+  showTotalBooks();
+  showBooksRead();
+  showBooksUnread();
+  showPagesRead();
+  checkForExamples();
+}
+
+function checkForExamples() {
+  if (library.length !== 0) {
+    mobileExamples.style.display = "none";
+  } else {
+    mobileExamples.style.display = "inline";
+  }
+}
+
+const mobileExamples = document.querySelector(".add-mobile-example");
+mobileExamples.addEventListener("click", () => {
+  addExampleBooks();
+});
+
 Book.prototype.checkboxStatus = function (readstatusButton) {
   if (this.readstatus) {
     readstatusButton.classList.add("readstatus-button");
@@ -61,7 +91,6 @@ function showPagesRead() {
     return accumulator;
   }, 0);
   bookPages.textContent = bookPagesCount;
-  console.log(bookPagesCount);
 }
 
 function addBookToLibrary(e) {
@@ -89,6 +118,7 @@ function addBookToLibrary(e) {
   pagesInput.value = "";
   readstatusInput.checked = false;
 
+  checkForExamples();
   updateTable();
 }
 
@@ -144,6 +174,7 @@ function removeBookFromLibrary(index) {
   showBooksRead();
   showBooksUnread();
   showPagesRead();
+  checkForExamples();
 }
 
 function updateTable() {
