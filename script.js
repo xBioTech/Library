@@ -144,6 +144,7 @@ function addBookToTable(object, index) {
 
   const tableRow = document.createElement("tr");
   tableRow.setAttribute("data-index", index);
+  tableRow.classList.add("animated-table-rows");
 
   const titleCell = document.createElement("td");
   titleCell.textContent = object.title;

@@ -125,6 +125,17 @@ form .example {
 .main thead th:nth-child(5) {
   width: 15%;
 }
+@keyframes scale-in {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.main .animated-table-rows {
+  animation: scale-in 0.4s ease-in-out forwards;
+}
 .main td {
   padding: 0.5em;
   border-bottom: 2px solid #123c69;

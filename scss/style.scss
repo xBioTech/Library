@@ -135,6 +135,19 @@ form {
     width: 15%;
   }
 
+  @keyframes scale-in {
+    0% {
+      transform: scale(0);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+  .animated-table-rows {
+    animation: scale-in 0.4s ease-in-out forwards;
+  }
+
   td {
     padding: 0.5em;
     border-bottom: 2px solid $secondary-color;
