@@ -80,6 +80,9 @@ form .add-button {
 form .add-button:active {
   transform: scale(0.9);
 }
+form .example {
+  margin-top: 2em;
+}
 
 .main {
   width: 100%;

@@ -8,9 +8,24 @@ function Book(title, author, pages, readstatus) {
 }
 
 function addExampleBooks() {
-  const example1 = new Book("exampletitle", "exampleauthor", 200, true);
-  const example2 = new Book("exampletitle", "exampleauthor", 150, false);
-  const example3 = new Book("exampletitle", "exampleauthor", 350, true);
+  const example1 = new Book(
+    "Harry Potter and the Sorcerer's Stone",
+    "J. K. Rowling",
+    336,
+    true
+  );
+  const example2 = new Book(
+    "The Lord of the Rings",
+    "J. R. R. Tolkien",
+    448,
+    false
+  );
+  const example3 = new Book(
+    "Game of Thrones Winter is Coming",
+    "George R. R. Martin's",
+    320,
+    true
+  );
   library.push(example1);
   library.push(example2);
   library.push(example3);
@@ -26,14 +41,15 @@ function addExampleBooks() {
 
 function checkForExamples() {
   if (library.length !== 0) {
-    mobileExamples.style.display = "none";
+    predefinedExamples.style.display = "none";
   } else {
-    mobileExamples.style.display = "inline";
+    predefinedExamples.style.display = "inline";
   }
 }
 
-const mobileExamples = document.querySelector(".add-mobile-example");
-mobileExamples.addEventListener("click", () => {
+const predefinedExamples = document.querySelector(".example");
+predefinedExamples.addEventListener("click", (e) => {
+  e.preventDefault();
   addExampleBooks();
 });
 
