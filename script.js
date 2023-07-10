@@ -1,10 +1,40 @@
 const library = [];
 
-function Book(title, author, pages, readstatus) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.readstatus = readstatus;
+class Book {
+  constructor(title, author, pages, readstatus) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.readstatus = readstatus;
+  }
+
+  checkboxStatus(readstatusButton) {
+    if (this.readstatus) {
+      readstatusButton.classList.add("readstatus-button");
+      readstatusButton.textContent = "read";
+    } else {
+      readstatusButton.classList.remove("readstatus-button");
+      readstatusButton.classList.add("readstatus-button-false");
+      readstatusButton.textContent = "not read";
+    }
+  }
+
+  toggleReadStatus(readstatusButton) {
+    if (readstatusButton.textContent === "read") {
+      readstatusButton.classList.remove("readstatus-button");
+      readstatusButton.classList.add("readstatus-button-false");
+      readstatusButton.textContent = "not read";
+      this.readstatus = false;
+    } else {
+      readstatusButton.classList.remove("readstatus-button-false");
+      readstatusButton.classList.add("readstatus-button");
+      readstatusButton.textContent = "read";
+      this.readstatus = true;
+    }
+    showBooksRead();
+    showBooksUnread();
+    showPagesRead();
+  }
 }
 
 function addExampleBooks() {
@@ -52,34 +82,6 @@ predefinedExamples.addEventListener("click", (e) => {
   e.preventDefault();
   addExampleBooks();
 });
-
-Book.prototype.checkboxStatus = function (readstatusButton) {
-  if (this.readstatus) {
-    readstatusButton.classList.add("readstatus-button");
-    readstatusButton.textContent = "read";
-  } else {
-    readstatusButton.classList.remove("readstatus-button");
-    readstatusButton.classList.add("readstatus-button-false");
-    readstatusButton.textContent = "not read";
-  }
-};
-
-Book.prototype.toggleReadStatus = function (readstatusButton) {
-  if (readstatusButton.textContent === "read") {
-    readstatusButton.classList.remove("readstatus-button");
-    readstatusButton.classList.add("readstatus-button-false");
-    readstatusButton.textContent = "not read";
-    this.readstatus = false;
-  } else {
-    readstatusButton.classList.remove("readstatus-button-false");
-    readstatusButton.classList.add("readstatus-button");
-    readstatusButton.textContent = "read";
-    this.readstatus = true;
-  }
-  showBooksRead();
-  showBooksUnread();
-  showPagesRead();
-};
 
 function showTotalBooks() {
   const totalBooks = document.querySelector(".total-books");
